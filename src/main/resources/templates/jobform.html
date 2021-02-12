@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Job Form </title>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<h1> Job Form </h1>
+
+<!-- Note that the action value sends the form input back to the controller  -->
+<!-- The controller will lookup its RequestMapping entries for a match with /process -->
+<!-- The model (container) modified in the jobForm method of the Controller  contains an empty -->
+<!-- instance of the Job class which will be populated here. Note the identification of the obj contained in the  -->
+	<!-- model (container) via th:object="${job}" statement, note the use of  th:field="*{job_field_name}" to link   -->
+	<!-- the html input field with the object's (job) property (field) names  -->
+
+<form action="#" th:action="@{/process}" th:object="${job}" method="post">
+
+Title: <input type="text" th:field="*{title}" />
+<span th:if="${#fields.hasErrors('title')}" 
+      th=errors="*{title}"> </span> <br />
+  
+Employer: <input type="text" th:field="*{employer}" />
+<span th:if="${#fields.hasErrors('employer')}" 
+      th=errors="*{employer}"> </span> <br />
+      
+      
+Description: <textarea rows="3" th:field="*{description}" />
+<span th:if="${#fields.hasErrors('description')}" 
+      th=errors="*{description}"> </span> <br />
+  
+  
+<input type="submit" value="Submit" />
+
+</form>
+
+</body>
+</html>

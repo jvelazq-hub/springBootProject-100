@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>List All Jobs </title>
+</head>
+<body>
+<h1> Job form </h1>
+<!--  Routed here by the "/" default mapping which uses the (findAll) method of the JobRepository class to retrieve all Job records  -->
+<!--  to create a vector or array of jobs which is then added to the model (container) so the Controller can forward it to this form -->
+<!--  for display (remember the model is a container like struct used to pass data (objects) between Controller & the view  -->
+
+<a href="/add"> Add a job </a> <br />
+<!--  For Loop: for each job instance in Array/List?vector jobs do: -->
+<div th:each="job : ${jobs}" > 
+
+<h4 th:inline="text"> [[${job.title}]] @ [[${job.employer}]] </h4>
+<p th:text="${job.description}"> </p>
+
+</div>
+
+</body>
+</html>
