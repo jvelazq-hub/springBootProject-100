@@ -4,7 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.util.Vector;
 
-import javax.validation.Valid;
+//import javax.validation.Valid;
 
 //import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -87,7 +87,8 @@ public class HomeController {
 	 * into the h2 in memory DB. 
 	 */
 	@PostMapping("/process")
-	public String processForm(@Valid Job job, BindingResult result) {
+	//public String processForm(@Valid Job job, BindingResult result) {
+	public String processForm(Job job, BindingResult result) {
 		if (result.hasErrors()) {
 			return "jobform";
 		}
